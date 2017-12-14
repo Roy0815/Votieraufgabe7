@@ -27,8 +27,8 @@ public class MainActivity extends Activity implements SensorEventListener {
     final String[] achse = {"X", "Y", "Z"};
     final String[] vorzeichen = {"+", "-"};
     String sAufgabe;
-    int zahl;
-    int zahl2;
+    int zufallAchse;
+    int zufallVorzeichen;
     int iteration;
 
     @Override
@@ -54,9 +54,9 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        int i = (int) (sensorEvent.values[zahl] * 100);
+        int i = (int) (sensorEvent.values[zufallAchse] * 100);
         progressBar.setProgress(i);
-        if (zahl2 == 0){
+        if (zufallVorzeichen == 0){
             if (i > höchsterWert) {
                 höchsterWert = Math.abs(i);
                 progressBar.setSecondaryProgress(höchsterWert);
@@ -82,11 +82,11 @@ public class MainActivity extends Activity implements SensorEventListener {
     }
 
     public void setAufgabe(){
-        zahl = (int)((Math.random()) * 3);
-        zahl2 = (int)((Math.random()) * 2);
-        sAufgabe = "Aufgabe: Beschleunige dein Telefon mit " + vorzeichen[zahl2] + (Ziel/100) + " m/s*s entlang der " + achse[zahl] + "-Achse!";
+        zufallAchse = (int)((Math.random()) * 3);
+        zufallVorzeichen = (int)((Math.random()) * 2);
+        sAufgabe = "Aufgabe: Beschleunige dein Telefon mit " + vorzeichen[zufallVorzeichen] + (Ziel/100) + " m/s*s entlang der " + achse[zufallAchse] + "-Achse!";
         aufgabe.setText(sAufgabe);
-        max.setText(vorzeichen[zahl2] + (Ziel/100));
+        max.setText(vorzeichen[zufallVorzeichen] + (Ziel/100));
     }
 
     public void onNext(View v){
