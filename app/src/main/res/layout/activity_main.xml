@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="p.d064905.votieraufgabe7.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:max="100"
+            android:progress="50"
+            android:progressTint="@android:color/holo_green_dark"
+            android:secondaryProgressTint="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/textViewAufgabe"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progressBar"
+            android:layout_alignStart="@+id/progressBar"
+            android:layout_marginBottom="81dp"
+            android:text="Aufgabe: Beschleunige dein Telefon mit mindestens 1 m/s*s entlang der X-Achse!" />
+
+        <TextView
+            android:id="@+id/textViewMinValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/progressBar"
+            android:layout_below="@+id/progressBar"
+            android:layout_marginTop="16dp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewMaxValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/progressBar"
+            android:layout_alignTop="@+id/textViewMinValue"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/buttonNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="31dp"
+            android:enabled="false"
+            android:onClick="onNext"
+            android:text="nächste Aufgabe" />
+
+        <TextView
+            android:id="@+id/textViewBeschreibung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewMaxValue"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:text="Grün: aktuelle Beschleunigung" />
+
+        <TextView
+            android:id="@+id/textViewBeschreibung2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewBeschreibung"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Rot: höchste erreichte Beschleunigung" />
+
+        <TextView
+            android:id="@+id/textViewScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="Score: 0" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/buttonNext"
+            android:onClick="onInfo"
+            android:text="Info" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
